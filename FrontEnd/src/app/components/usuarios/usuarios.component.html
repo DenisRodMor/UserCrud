@@ -1,0 +1,141 @@
+<div class="container mt-5">
+  <div class="row text-center mt-4">
+    <div class="col">
+      <img src="https://cdn-icons-png.flaticon.com/512/6534/6534380.png" alt=""
+        class="img-fluid" width="150px">
+    </div>
+  </div>
+
+  <div  class="row mt-4">
+      <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="titulo">{{accion | uppercase}} USUARIO</h5> <!--Para que el titulo cambie dependiendo de que accion tenga, si agrega o actualiza-->
+
+
+              <!--Formulario para ingresar los datps
+              //Denis Rodriguez
+              //07/06/2022-->
+              <form [formGroup]="form" (ngSubmit)="guardarUsuario()">
+
+
+                <div class="input-group input-group-lg mb-3">
+                  <span class="input-group-text">
+                    <i class="fas fa-file-signature"
+                    [class.green-icon]="this.form.get('nombre')?.valid"
+                    [class.red-icon]="this.form.get('nombre')?.invalid && this.form.get('nombre')?.touched "></i> <!--Marcarlo en rojo despues de que haya sido tocado y no se haya introducido informacion-->
+                  </span>
+                  <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre">
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                  <span class="input-group-text">
+                    <i class="fa-solid fa-user-tie"
+                    [class.green-icon]="this.form.get('apellidos')?.valid"
+                    [class.red-icon]="this.form.get('apellidos')?.invalid && this.form.get('apellidos')?.touched "></i>
+                  </span>
+                  <input formControlName="apellidos" type="text" class="form-control" placeholder="Apellidos">
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                  <span class="input-group-text">
+                    <i class="fas fa-user-check"
+                    [class.green-icon]="this.form.get('usuario')?.valid"
+                    [class.red-icon]="this.form.get('usuario')?.invalid && this.form.get('usuario')?.touched "></i>
+                  </span>
+                  <input formControlName="usuario" type="text" class="form-control" placeholder="Usuario">
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                  <span class="input-group-text">
+                    <i class="fas fa-key"
+                    [class.green-icon]="this.form.get('clave')?.valid"
+                    [class.red-icon]="this.form.get('clave')?.invalid && this.form.get('clave')?.touched "></i>
+                  </span>
+                  <input formControlName="clave" type="password" class="form-control"  placeholder="Contraseña">
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                  <span class="input-group-text">
+                    <i class="fas fa-map-location-dot"
+                    [class.green-icon]="this.form.get('direccion')?.valid"
+                    [class.red-icon]="this.form.get('direccion')?.invalid && this.form.get('direccion')?.touched "></i>
+                  </span>
+                  <input formControlName="direccion" type="text" class="form-control" placeholder="Direccion Exacta">
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                  <span class="input-group-text">
+                    <i class="fas fa-phone-volume"
+                    [class.green-icon]="this.form.get('telefono')?.valid"
+                    [class.red-icon]="this.form.get('telefono')?.invalid && this.form.get('telefono')?.touched "></i>
+                  </span>
+                  <input formControlName="telefono" type="text" maxlength="8" class="form-control" placeholder="Telefono">
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                  <span class="input-group-text">
+                    <i class="fas fa-user"
+                    [class.green-icon]="this.form.get('tipodeUsuario')?.valid"
+                    [class.red-icon]="this.form.get('tipodeUsuario')?.invalid && this.form.get('tipodeUsuario')?.touched "></i>
+                  </span>
+                  <select formControlName="tipodeUsuario" type="text" class="form-control">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Funcionario">Funcionario</option>
+                    <option value="Invitado">Invitado</option>
+                  </select>
+                </div>
+
+                <div class="d-grid gap-2">
+                  <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg "> <!--Deshabilitar boton hasta que el formulario sea valido-->
+                    <i class="fa-solid fa-list-check"></i> Aceptar</button>
+                </div>
+
+              </form>
+
+
+
+
+
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="titulo">LISTADO DE USUARIOS</h5>
+            <table class="table">
+              <thead>
+                <tr> <!--Columnas de la tabla-->
+                  <th>Nombres</th>
+                  <th>Apellidos</th>
+                  <th>Usuario</th>
+                  <th>Contraseña</th>
+                  <th>Dirección Exacta</th>
+                  <th>Telefono</th>
+                  <th>Tipo de Usuario</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let usuario of listarUsuario"> <!--Mostrar los datos que existen en la BD-->
+                  <td>{{usuario.nombre}}</td>
+          <td>{{usuario.apellidos}}</td>
+          <td>{{usuario.usuario}}</td>
+          <td>{{usuario.clave}}</td>
+          <td>{{usuario.direccion}}</td>
+          <td>{{usuario.telefono}}</td>
+          <td>{{usuario.tipodeUsuario}}</td>
+                  <td>
+                    <i (click)="editarUsuario(usuario)" class="far fa-edit text-info"></i>
+                  </td>
+                  <td>
+                    <i (click)="eliminarUsuario(usuario.id)" class="far fa-trash-alt text-danger"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

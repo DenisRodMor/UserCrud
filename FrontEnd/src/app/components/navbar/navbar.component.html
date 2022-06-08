@@ -1,0 +1,21 @@
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="col">
+    <div ngbDropdown class="d-inline-block"  *ngIf="userLogged|async as user; else btnIngresar">
+      <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle><img src="https://cdn-icons-png.flaticon.com/512/64/64926.png"
+        width="30" height="30" class="d-inline-block align-top" alt="">
+    {{user.displayName?user.displayName : user.email}} <!--Si el usuario tiene un displayname que pasar  va mostrar el displayname si no va a mostrar el correo-->
+  </button>
+
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem routerLink="/Principal">Inicio</button>
+        <button ngbDropdownItem routerLink="/usuarios">Usuarios</button>
+        <button ngbDropdownItem (click)="logout()">Salir</button>
+      </div>
+    </div>
+
+  <ng-template #btnIngresar>
+      <button class="btn btn-outline-primary" routerLink="/login">Ingresar</button>
+  </ng-template>
+
+
