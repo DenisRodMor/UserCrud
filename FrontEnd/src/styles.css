@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  background: #8E0E00;
-  background: -webkit-linear-gradient(to right, #1F1C18, #8E0E00);
-  background: linear-gradient(to right, #1F1C18, #8E0E00);
+  background: #07492b;
+  background: -webkit-linear-gradient(to right, #1F1C18, #074309);
+  background: linear-gradient(to right, #1F1C18, #1c79b4);
 }
 
 .titulo{
