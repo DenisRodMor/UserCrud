@@ -7,7 +7,11 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+        //=============================================================================
+        // Author:		<Author,,Denis Rodriguez>
+        //Create date: <Create 13/06/2022>
+        // Description:	<Description, variables para el login   >
+        //=============================================================================
   usuario={
     email: '',
     password:''
@@ -17,6 +21,11 @@ export class LoginComponent implements OnInit {
 
     }
 
+        //=============================================================================
+        // Author:		<Author,,Denis Rodriguez>
+        //Create date: <Create 13/06/2022>
+        // Description:	<Description, Metodo para iniciar sesion con correo y pass   >
+        //=============================================================================
     Ingresar(){
       console.log(this.usuario);
       const {email,password}=this.usuario;
@@ -24,6 +33,13 @@ export class LoginComponent implements OnInit {
         console.log("se registró: ", res);
       })
     }
+
+
+        //=============================================================================
+        // Author:		<Author,,Denis Rodriguez>
+        //Create date: <Create 13/06/2022>
+        // Description:	<Description, Metodo para iniciar sesion con cuenta de google >
+        //=============================================================================
 
     IngresarConGoogle(){
           console.log(this.usuario);
@@ -33,7 +49,11 @@ export class LoginComponent implements OnInit {
       })
     }
 
-
+        //=============================================================================
+        // Author:		<Author,,Denis Rodriguez>
+        //Create date: <Create 13/06/2022>
+        // Description:	<Description, Metodo para cerrar sesion   >
+        //=============================================================================
 
     logout(){
       this.authService.logout();

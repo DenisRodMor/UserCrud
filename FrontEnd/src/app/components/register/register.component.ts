@@ -7,7 +7,11 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+        //=============================================================================
+        // Author:		<Author,,Denis Rodriguez>
+        //Create date: <Create 13/06/2022>
+        // Description:	<Description, Variables para registro   >
+        //=============================================================================
   usuario={
     email: '',
     password:''

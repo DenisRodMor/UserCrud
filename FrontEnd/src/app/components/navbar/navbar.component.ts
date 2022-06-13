@@ -8,6 +8,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+        //=============================================================================
+        // Author:		<Author,,Denis Rodriguez>
+        //Create date: <Create 13/06/2022>
+        // Description:	<Description, Mostrar cual usuario esta logeado en el sistema >
+        //=============================================================================
 
   userLogged=this.authService.getUserLogged();
 

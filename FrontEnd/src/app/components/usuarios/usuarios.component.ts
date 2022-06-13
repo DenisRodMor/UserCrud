@@ -46,6 +46,12 @@ export class UsuariosComponent implements OnInit {
 
   }
 
+
+        //=============================================================================
+        // Author:		<Author,,Denis Rodriguez>
+        //Create date: <Create 13/06/2022>
+        // Description:	<Description, Metodo para guardar usuario en la base de datos>
+        //=============================================================================
   guardarUsuario(){
           const usuario: any = { //los datos ingresados en el formulario, guardarlos en su variable
             nombre:this.form.get('nombre')?.value,
